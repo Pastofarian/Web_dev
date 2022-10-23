@@ -157,7 +157,7 @@ Nombre d'élèves : <?= $tableau4["nbrEleves"];?>
 7 - Ajouter deux etudiants($tableau6 & $tableau7) au $tableau4
  !!!!!! Mettre a jour la clé 'etudiant....'!!!!!!!!!
 */
-
+/*******************Fonctionne avec le tableau "CorrectionExosTableaux.php *//* celui plus haut descent un niveau de moins que celui de Raphael*/
 function addEtudiant($tab,$etudiant){
     array_push($tab,$etudiant);
     $cpt=1;

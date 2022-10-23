@@ -105,9 +105,14 @@ function bonjour($a, $b){
 //      et verifier qu'il n'y ai pas de chiffres ni accents dans ceux-ci
 //      (tant que rien n'est entrer, ne pas afficher de message)
 
+//Voir générateur d'expression réguliere!!
 function expressionRegul($a, $b){
-    if(preg_match('/^[a-zA-Z]$/', $a)){
-        return $a . " " . $b;
+    if (preg_match('~^[À-ÖØ-öø-ÿœŒ0-9]+$~u', $a) || preg_match('~^[À-ÖØ-öø-ÿœŒ0-9]+$~u', $b)){
+      return ' Erreur de saisie ';
+    } else {
+      return $a . " " . $b;
     }
-}
+  }
+
+
 ?>
