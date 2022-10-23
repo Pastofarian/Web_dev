@@ -1,34 +1,36 @@
 <?php
 
-if(isset($_GET['nom']) && isset($_GET['prenom']) && isset($_GET['naissance'])){
+// if(isset($_GET['nom']) && isset($_GET['prenom']) && isset($_GET['naissance'])){
+//     $display = ();
+//     $display = $_GET['nom'], $_GET['prenom'];
+// }
 
-    $display = $_GET();
-}
+//var_dump($_GET);
 
-var_dump($display);
-/*
-$cfile = fopen('devoir1.csv', 'a');
 
-//$header_data=array('Nom','Prenom','Naissance');
 
-//fputcsv($cfile,$header_data);
- 
+
+
+
+//headers in the file
+
+// $fp = fopen("devoir1.csv", "a");
+// if ($fp) {
+//     while (($buffer = fgets($fp, 4096)) == false) {
+//         $header_data=array('Nom','Prenom','Naissance', 'mail', 'pass1', 'pass2');
+//         fputcsv($out,$header_data);
+//     }
+//     fclose($fp);
+// }
+
+//open the file
+$out = fopen('devoir1.csv', 'a');
 //Data to be inserted
-// $fdata = array(
-// array('1','John','38'),
-// array('2','Sid','72'),
-// array('3','Jk','20')
-// );
- 
-// save each row of the data
-foreach ($display as $row)
-{
-fputcsv($cfile, $row);
-}
- 
-// Closing the file
-fclose($cfile);
+fputcsv($out, $_GET);
+//Closing the file
+fclose($out);
 
-//header("Location: ../View/devoir1.php?display=".$display);
-*/
+
+//header("Location: ../View/registered.php");
+
 ?>

@@ -10,62 +10,23 @@
 </head>
 
 <body>
-    <header>
-        <div class="container"><span id="phone_info">+33 (0) 380.62.80.37</span>
-            <a href="https://www.facebook.com/" target="_blank"><img id="facebook"
-                    src="/Web/Millesime/images/facebook-logo-circle-white.png" alt="facebook"></a><a
-                href="https://www.instagram.com/" target="_blank"><img id="instagram"
-                    src="/Web/Millesime/images/instagram-logo-black-transparent-381383913.png" alt="instagram"></a>
-        </div>
-        <h1>Le Millésime</h1>
-        <nav>
-            <ul class="navigation_menu">
-                <!--Contact & réservations-->
-                <li><a class="menu_link" href="contact.html" title="Contact">CONTACT</a></li>
-                <li>|</li>
-                <!--Brochure opens in a blank page-->
-                <li><a class="menu_link" href="../images/vdocument.in_bovine-anatomy.pdf" target="_blank" title="Brochure">BROCHURE</a></li>
-                <li>|</li>
-                <!--link "Les chambres" not in use-->
-                <li><a class="menu_link" href="#" title="Les chambres">LES CHAMBRES</a></li>
-                <li>|</li>
-                <li><a class="menu_link" href="cuisine.html" title="Carte & Menus">CARTE & MENU</a></li>
-                <li>|</li>
-                <li><a class="menu_link" href="https://cornhub.fr/" title="Le restaurant">LE RESTAURANT</a></li>
-            </ul>
-        </nav>
-    </header>
     <main role="main">
-        <div class="container_parent">
+    <h1>Page d'enregistrement</h1>
             <div class="container_child">
-                
                 <form action="../Controler/devoir1.php" method="GET">
-                    <p class="input_form"><label for="prenom">Prénom *</label>
-                        <input type="text" name="prenom" id="prenom" autocomplete="on" required>&nbsp;&nbsp;&nbsp;
-                        <!-- add required !-->
-                        <label for="nom">Nom *</label>
-                        <input type="text" name="nom" id="nom" autocomplete="on">
-                    </p>
-                    <p class="input_form">
-                        <label for="naissance">Date de naissance</label>
-                        <input type="date" id="naissance" name="naissance">
-                    </p>
                     <p class="input_form">
                         <label for="email">Adresse e-mail *</label>
-                        <input type="email" id="email" name="mail" autocomplete="on">
+                        <input type="email" id="email" name="logMail" autocomplete="on">
                     </p>
                     <p class="input_form">
-                    <label for="pass">Entrez un mot de passe *</label>
-                    <input type="password" id="pass1" name="pass1"><br>
-                    <label for="pass">Confirmer votre mot de passe *</label>
-                    <input type="password" id="pass2" name="pass2"><br>
+                    <label for="pass">Entrez votre mot de passe *</label>
+                    <input type="password" id="pass" name="logPass"><br>
                     </p>
                     <p>
                         <input type="submit" value="Envoyer" id="submit">
                     </p>
                 </form>
             </div>
-        </div>
     </main>
     <footer class="footer">
         <ul class="footer__nav">
