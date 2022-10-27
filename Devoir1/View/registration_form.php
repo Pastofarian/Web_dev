@@ -39,7 +39,7 @@
         <div class="container_parent">
             <div class="container_child">
                 
-                <form action="../Controler/devoir1.php" method="GET">
+                <form action="../Controler/control_registration.php" method="GET">
                     <p class="input_form"><label for="prenom">Prénom *</label>
                         <input type="text" name="prenom" id="prenom" autocomplete="on" required>&nbsp;&nbsp;&nbsp;
                         <!-- add required !-->
@@ -65,17 +65,22 @@
                     </p>
                 </form>
                 <?php
-                
                 session_start();
-                if(!empty($_SESSION["checkEmpty"])){
-                    //echo $_GET["bonjour"];
-                    foreach($_SESSION["checkEmpty"] as $key => $value){
-                      echo $key.' -> '.$value.'<br>';
-                    }
+
+                
+                foreach($_SESSION["checkEmpty"] as $key => $value){
+                   echo $key.' -> '.$value.'<br>';
                 }
-                if(!empty($_SESSION["checkPassword"])){
-                      echo $_SESSION["checkPassword"];
-                }
+                echo $_SESSION["checkPassword"];
+                
+                // if(($_SESSION["checkEmpty"])){
+                //     foreach($_SESSION["checkEmpty"] as $key => $value){
+                //       echo $key.' -> '.$value.'<br>';
+                //     }
+                // }
+                // if(!isset($_SESSION["checkPassword"])){
+                //       echo $_SESSION["checkPassword"];
+                // }
                 //session_destroy();
 
                 ?>
