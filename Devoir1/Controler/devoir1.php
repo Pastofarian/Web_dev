@@ -1,36 +1,43 @@
 <?php
+session_start();
+$redirect = false;
+$location = '../View/registration_form.php';
 
-// if(isset($_GET['nom']) && isset($_GET['prenom']) && isset($_GET['naissance'])){
-//     $display = ();
-//     $display = $_GET['nom'], $_GET['prenom'];
+function checkEmpty($data){
+    $error = array();
+    foreach ($data as $key => $value) {
+      if(empty($value)){
+        $error[$key]='Veuillez remplir le champ ' . $key;
+      } else {
+        $redirect = true;
+      }
+    }
+        return $error;
+  }
+
+// if(!$redirect && !empty($location)){
+//     //$bonjour = "bonjour";
+//     $_SESSION["checkEmpty"] = checkEmpty($_GET);
+//     //var_dump($_SESSION["checkEmpty"]);
+//     header("Location: ". $location);
+//     exit;
 // }
 
+  function checkPassword($pass1, $pass2){
+    $error = "";
+    if($pass1 != $pass2){
+        $error = "Erreur dans le mot de passe, recommencez !";
+        $redirect = true;
+    }
+    return $error;
+  }
+
+if(!$redirect && !empty($location)){
+    $_SESSION["checkPassword"] = checkPassword($_GET['pass1'], $_GET['pass2']);
+    header("Refresh:0");
+}
 //var_dump($_GET);
 
-
-
-
-
-
-//headers in the file
-
-// $fp = fopen("devoir1.csv", "a");
-// if ($fp) {
-//     while (($buffer = fgets($fp, 4096)) == false) {
-//         $header_data=array('Nom','Prenom','Naissance', 'mail', 'pass1', 'pass2');
-//         fputcsv($out,$header_data);
-//     }
-//     fclose($fp);
-// }
-
-//open the file
-$out = fopen('devoir1.csv', 'a');
-//Data to be inserted
-fputcsv($out, $_GET);
-//Closing the file
-fclose($out);
-
-
-//header("Location: ../View/registered.php");
-
+header("Location: ../View/login_form.php");
+//session_destroy();
 ?>
