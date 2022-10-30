@@ -6,27 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/millesime.css">
-    <title>Contact - Le Millésime</title>
+    <title>Welcome</title>
 </head>
 
 <body>
+    <header>
+        <div class="container"><span id="phone_info">+33 (0) 380.62.80.37</span>
+            <a href="https://www.facebook.com/" target="_blank"><img id="facebook"
+                    src="/Web/Millesime/images/facebook-logo-circle-white.png" alt="facebook"></a><a
+                href="https://www.instagram.com/" target="_blank"><img id="instagram"
+                    src="/Web/Millesime/images/instagram-logo-black-transparent-381383913.png" alt="instagram"></a>
+        </div>
+        <h1>Le Millésime</h1>
+        <nav>
+            <ul class="navigation_menu">
+                <!--Contact & réservations-->
+                <li><a class="menu_link" href="#" title="Contact">CONTACT</a></li>
+                <li>|</li>
+                <!--Brochure opens in a blank page-->
+                <li><a class="menu_link" href="../images/vdocument.in_bovine-anatomy.pdf" target="_blank" title="Brochure">BROCHURE</a></li>
+                <li>|</li>
+                <!--link "Les chambres" not in use-->
+                <li><a class="menu_link" href="#" title="Les chambres">LES CHAMBRES</a></li>
+                <li>|</li>
+                <li><a class="menu_link" href="#" title="Carte & Menus">CARTE & MENU</a></li>
+                <li>|</li>
+                <li><a class="menu_link" href="https://cornhub.fr/" title="Le restaurant">LE RESTAURANT</a></li>
+            </ul>
+        </nav>
+    </header>
     <main role="main">
-    <h1>Page d'enregistrement</h1>
+        <div class="container_parent">
             <div class="container_child">
-                <form action="../Controler/control_login.php" method="GET">
-                    <p class="input_form">
-                        <label for="email">Adresse e-mail *</label>
-                        <input type="email" id="email" name="logMail" autocomplete="on">
-                    </p>
-                    <p class="input_form">
-                    <label for="pass">Entrez votre mot de passe *</label>
-                    <input type="password" id="pass" name="logPass"><br>
-                    </p>
-                    <p>
-                        <input type="submit" value="Envoyer" id="submit">
-                    </p>
-                </form>
+                <p>Welcome</p>
+                <?php
+                ?>
             </div>
+        </div>
     </main>
     <footer class="footer">
         <ul class="footer__nav">
@@ -99,6 +115,18 @@
     <div>
         <p id="copyright">&copy; 2022 Le Millésime. All rights reserved.</p>
     </div>
+
+    <?php 
+
+// if(!empty($_GET["display"])){
+
+//     echo "La personne est " . $_GET["display"];
+// } else {
+//     NULL;
+// } 
+// echo "<br>";
+// echo "<br>";
+?>
 </body>
 
 </html>
