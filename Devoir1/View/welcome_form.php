@@ -38,8 +38,9 @@
     <main role="main">
         <div class="container_parent">
             <div class="container_child">
-                <p>Welcome</p>
                 <?php
+                session_start();
+                echo "Bienvenue " . $_SESSION["firstName"] . " " . $_SESSION["lastName"] . " " . $_SESSION["age"] . " ans";
                 ?>
             </div>
         </div>

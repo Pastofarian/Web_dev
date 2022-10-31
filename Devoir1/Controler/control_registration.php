@@ -2,41 +2,23 @@
 session_start();
 include("../Functions/functions.php");
 
-// $registration = '../View/registration_form.php';
-// $login = '../View/login_form.php';
+$registration = '../View/registration_form.php';
+$login = '../View/login_form.php';
 
-$_SESSION["checkEmpty"] = checkEmpty($_GET);
-$_SESSION["checkPassword"] = checkPassword($_GET["pass1"],$_GET["pass2"]);
+$_SESSION["checkEmpty"] = checkEmpty($_POST);
+$_SESSION["checkPassword"] = checkPassword($_POST["pass1"],$_POST["pass2"]);
+
+// if(!preg_match("/^[A-Za-z '-]+$/",$_POST["prenom"]) && !strlen($_POST["prenom"]) < 25){
+//     $_SESSION["error"] = "Erreur dans le prénom";
+//     header("Location: " . $registartion);
+// }
 
 if(!empty($_SESSION["checkEmpty"]) || !empty($_SESSION["checkPassword"])) {
-    header("Location: ../View/registration_form.php"); 
+    header("Location: " . $registration); 
 }else{
-    header("Location: ../View/login_form.php");
+    addDatasCsv();
+    header("Location: " . $login);
 }
-
-// if(!empty($_SESSION["checkPassword"])){
-//     header("Location: ../View/registration_form.php");
-//   }else{
-//     header("Location: ../View/login_form.php");
-// }
-
-//headers in the file
-
-// $fp = fopen("devoir1.csv", "a");
-// if ($fp) {
-//     while (($buffer = fgets($fp, 4096)) == false) {
-//         $header_data=array('Nom','Prenom','Naissance', 'mail', 'pass1', 'pass2');
-//         fputcsv($out,$header_data);
-//     }
-//     fclose($fp);
-// }
-
-//open the file
-$out = fopen('datas.csv', 'a+');
-//Data to be inserted
-fputcsv($out, $_GET);
-//Closing the file
-fclose($out);
 
 //var_dump($_SESSION["checkEmpty"]);
 

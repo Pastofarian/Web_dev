@@ -39,27 +39,28 @@
         <div class="container_parent">
             <div class="container_child">
                 
-                <form action="../Controler/control_registration.php" method="GET">
+                <form action="../Controler/control_registration.php" method="POST">
                     <p class="input_form"><label for="prenom">Prénom *</label>
-                        <input type="text" name="prenom" id="prenom" autocomplete="on" required>&nbsp;&nbsp;&nbsp;
-                        <!-- add required !-->
+                        <input type="text" name="prenom" id="prenom" autocomplete="on" required="required">&nbsp;&nbsp;&nbsp;
+                        
                         <label for="nom">Nom *</label>
-                        <input type="text" name="nom" id="nom" autocomplete="on">
+                        <input type="text" name="nom" id="nom" autocomplete="on" required="required">
                     </p>
                     <p class="input_form">
-                        <label for="naissance">Date de naissance</label>
-                        <input type="date" id="naissance" name="naissance">
+                        <label for="naissance">Date de naissance *</label>
+                        <input type="date" id="naissance" name="naissance" required="required">
                     </p>
                     <p class="input_form">
                         <label for="email">Adresse e-mail *</label>
-                        <input type="email" id="email" name="mail" autocomplete="on">
+                        <input type="email" id="email" name="mail" autocomplete="on" required="required">
                     </p>
                     <p class="input_form">
                     <label for="pass">Entrez un mot de passe *</label>
-                    <input type="password" id="pass1" name="pass1"><br>
+                    <input type="password" id="pass1" name="pass1" required="required"><br>
                     <label for="pass">Confirmer votre mot de passe *</label>
-                    <input type="password" id="pass2" name="pass2"><br>
+                    <input type="password" id="pass2" name="pass2" required="required"><br>
                     </p>
+                    <p style="font-size:12px">(*) Champs requis</p>
                     <p>
                         <input type="submit" value="Envoyer" id="submit">
                     </p>
@@ -67,20 +68,12 @@
                 <?php
                 session_start();
 
-                
                 foreach($_SESSION["checkEmpty"] as $key => $value){
                    echo $key.' -> '.$value.'<br>';
                 }
                 echo $_SESSION["checkPassword"];
+                // echo $_SESSION["error"];
                 
-                // if(($_SESSION["checkEmpty"])){
-                //     foreach($_SESSION["checkEmpty"] as $key => $value){
-                //       echo $key.' -> '.$value.'<br>';
-                //     }
-                // }
-                // if(!isset($_SESSION["checkPassword"])){
-                //       echo $_SESSION["checkPassword"];
-                // }
                 //session_destroy();
 
                 ?>
@@ -158,18 +151,6 @@
     <div>
         <p id="copyright">&copy; 2022 Le Millésime. All rights reserved.</p>
     </div>
-
-    <?php 
-
-// if(!empty($_GET["display"])){
-
-//     echo "La personne est " . $_GET["display"];
-// } else {
-//     NULL;
-// } 
-// echo "<br>";
-// echo "<br>";
-?>
 </body>
 
 </html>

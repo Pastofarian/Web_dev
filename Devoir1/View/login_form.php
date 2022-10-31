@@ -13,19 +13,26 @@
     <main role="main">
     <h1>Page d'enregistrement</h1>
             <div class="container_child">
-                <form action="../Controler/control_login.php" method="GET">
+                <form action="../Controler/control_login.php" method="POST">
                     <p class="input_form">
                         <label for="email">Adresse e-mail *</label>
-                        <input type="email" id="email" name="logMail" autocomplete="on">
+                        <input type="email" id="email" name="logMail" autocomplete="on" required="required">
                     </p>
                     <p class="input_form">
                     <label for="pass">Entrez votre mot de passe *</label>
-                    <input type="password" id="pass" name="logPass"><br>
+                    <input type="password" id="pass" name="logPass" required="required"><br>
                     </p>
                     <p>
                         <input type="submit" value="Envoyer" id="submit">
                     </p>
                 </form>
+                <?php
+                    session_start();
+                if(!isset($_SESSION["error"])){
+                      echo $_SESSION["error"];
+                      //session_destroy();
+                }
+                ?>
             </div>
     </main>
     <footer class="footer">
