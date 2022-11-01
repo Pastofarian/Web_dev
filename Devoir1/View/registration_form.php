@@ -48,22 +48,23 @@
                     </p>
                     <p class="input_form">
                         <label for="naissance">Date de naissance *</label>
-                        <input type="date" id="naissance" name="naissance" required="required">
+                        <input type="date" id="naissance" name="dob" required="required">
                     </p>
                     <p class="input_form">
                         <label for="email">Adresse e-mail *</label>
-                        <input type="email" id="email" name="mail" autocomplete="on" required="required">
+                        <input type="email" id="email" name="email" autocomplete="on" required="required">
                     </p>
                     <p class="input_form">
-                    <label for="pass">Entrez un mot de passe *</label>
+                    <label for="pass">Entrez un mot de passe **</label>
                     <input type="password" id="pass1" name="pass1" required="required"><br>
-                    <label for="pass">Confirmer votre mot de passe *</label>
+                    <label for="pass">Confirmer votre mot de passe **</label>
                     <input type="password" id="pass2" name="pass2" required="required"><br>
                     </p>
-                    <p style="font-size:12px">(*) Champs requis</p>
-                    <p>
                         <input type="submit" value="Envoyer" id="submit">
                     </p>
+                    <p style="font-size:12px">(*) Champs requis</p>
+                    <p style="font-size:12px"> (**) Le mot de passe doit comporter : 8 caractères minimum, 1 chiffre minimum, 1 majuscule minimum, 1 minuscule minimum</p>
+                    <p>
                 </form>
                 <?php
                 session_start();
@@ -72,7 +73,10 @@
                    echo $key.' -> '.$value.'<br>';
                 }
                 echo $_SESSION["checkPassword"];
-                // echo $_SESSION["error"];
+                echo $_SESSION["checkIdFn"];
+                echo $_SESSION["checkIdLn"];
+                echo $_SESSION["checkEmail"];
+
                 
                 //session_destroy();
 
