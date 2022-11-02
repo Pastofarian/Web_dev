@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 include("../Functions/functions.php");
 
 $registration = '../View/registration_form.php';
@@ -23,15 +24,13 @@ if(
     !empty($_SESSION["checkPassword"]) ||
     !empty($_SESSION["checkDob"])
     ) {
-        //header("Location: " . $registration); 
+    header("Location: " . $registration); 
 }else{
     addDatasCsv();
-    //header("Location: " . $login);
+    header("Location: " . $login);
 }
-$test = checkDob($_POST["dob"]);
-echo $test;
+
 //var_dump($_SESSION["checkEmpty"]);
-//
 
 //session_destroy();
 ?>

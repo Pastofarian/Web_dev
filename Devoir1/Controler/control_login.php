@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 include("../Functions/functions.php");
 
 // Set path to CSV file
@@ -28,12 +29,12 @@ for($i = 0; $i < (count($csv)-1); $i++){ //dernière ligne vide crée une erreur
     if($email == $csv[$i][3]){
         $islogOk = true;
         $logLine = $i;
-        $lastName = $csv[$i][1];
-        $firstName = $csv[$i][0];
-        $birthDate = $csv[$i][2];
+        $lastName = $csv[$i][1]; //attribue le nom 
+        $firstName = $csv[$i][0]; //attribue le prénom
+        $birthDate = $csv[$i][2]; //attribue la date de naissance
         break;
     } else {
-        $error = true;
+        $error = true; //si log(email) pas trouvé dans le .csv => erreur
     }
 }
 // check si le password est bien dans le fichier .csv
@@ -49,7 +50,7 @@ for($i = 0; $i < (count($csv)-1); $i++){
 
 // check si l'email correspond bien au password
 if($passLine == $logLine){
-    $isPassAndLogOk = true;
+    $isPassAndLogOk = true; //évite de pouvoir se loger avec le PW de qqun d'autre
 } else {
     $error = true;
 }
@@ -59,7 +60,7 @@ if($error){
     $_SESSION["error"] = "Erreur dans le mot de passe ou le login";
 }
 
-//pour un welcome personnalisé
+//pour une page de bienvenue personnalisée
 $age = date_diff(date_create($birthDate), date_create($currentDate));
 $_SESSION["lastName"] = $lastName;
 $_SESSION["firstName"] = $firstName;
@@ -68,6 +69,7 @@ $_SESSION["age"] = $age->format("%y");
 
 //si tous les flags sont ok -> welcome
 if($isPassOk && $islogOk && $isPassAndLogOk){
+    $_SESSION["loggedIn"] = TRUE;
     header("Location: ../View/welcome_form.php");
 } else {
     header("Location: ../View/login_form.php");

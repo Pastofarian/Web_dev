@@ -11,7 +11,7 @@ function checkEmpty($data){
   return $error;
 }
 
-//Check si les le password et sa confirmation match
+//Check si le password et sa confirmation match
 function matchPassword($pass1, $pass2){
     $error = "";
     if($pass1 != $pass2){
@@ -85,53 +85,39 @@ function checkEmail($email) {
   return $error;
 }
 
-// function checkMatch($isPassOk, $islogOk, $isPassAndLogOk){
-//     $error = "Erreur dans le mot de passe ou le login";
-//     if(!$isPassOk && !$islogOk && !$isPassAndLogOk){
-//         return $error;
-//     }
-// }
-
-//controle de la date de naissance
-//https://brainbell.com/php/validating-date-of-birth.html
-
+//check de la date de naissance
 function checkDob($dob){
- $message = '';
-
- # Validate Date of Birth
-
- if (!preg_match('~^([0-9]{2})/([0-9]{2})/([0-9]{4})$~', $dob, $parts)){
-  # Check the format
-  $message = 'The date of birth is not a valid date in the format MM/DD/YYYY';
- }
- elseif (!checkdate($parts[1],$parts[2],$parts[3])){
-  $message = 'The date of birth is invalid. Please check that the month is between 1 and 12, and the day is valid for that month.';
- }
- 
- if ($message == '') {
-  # Convert date of birth to DateTime object
-  $dob =  new DateTime($dob);
-
-  $minInterval = DateInterval::createFromDateString('18 years');
-  $maxInterval = DateInterval::createFromDateString('120 years');
- 
-  $minDobLimit = ( new DateTime() )->sub($minInterval);
-  $maxDobLimit = ( new DateTime() )->sub($maxInterval);
- 
-  if ($dob <= $maxDobLimit)
-   # Make sure that the user has a reasonable birth year
-   $message = 'You must be alive to use this service.';
-   # Check whether the user is 18 years old.
-  elseif ($dob >= $minDobLimit) {
-   $message = 'You must be 18 years of age to use this service.';
+  $message = '';
+  $date = $dob;
+  $today = date("Y-m-d");
+  
+  //fonction explode pour diviser la date
+  $dateExploded = explode("-", $date);
+  
+  //la date doit contenir 3 éléments
+  if(count($dateExploded) != 3){
+    $message = "La date de naissance n'est pas dans le format valide JJ/MM/AAAA";
   }
- 
-  if ($message == '') {
-   $today = new DateTime();
-   $diff = $today->diff($dob);
-   $message = $diff->format('You are %Y years, %m months and %d days old.');
+  
+  $day = $dateExploded[2];
+  $month = $dateExploded[1];
+  $year = $dateExploded[0];
+  
+  //fonction checkdate pour vérifier si la date existe
+  if(!checkdate($month, $day, $year)){
+    $message = 'La date de naissance est invalide. Verifiez que le mois est bien situé entre 1 et 12 et que le jour est valide pour ce mois.';
   }
- }
+  //si la date est valide, il faut vérifier l'age
+   if ($message == '') {
+  //convertis la date en année
+    $year = (date('Y') - date('Y', strtotime($date)));
+  
+    if($year > 120){
+      $message = 'Vous devez être vivant pour vous inscrire sur ce site';
+    } elseif($year < 10){
+      $message = "Vous devez être agé d'au moins 10 ans pour vous inscrire sur ce site";
+    }
+   }
  return $message;
 }
 

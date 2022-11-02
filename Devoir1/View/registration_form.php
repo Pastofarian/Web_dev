@@ -68,15 +68,23 @@
                 </form>
                 <?php
                 session_start();
-
+                error_reporting(0);
+                
                 foreach($_SESSION["checkEmpty"] as $key => $value){
                    echo $key.' -> '.$value.'<br>';
                 }
+                echo'<pre>';
                 echo $_SESSION["checkPassword"];
+                echo'<pre>';
                 echo $_SESSION["checkIdFn"];
+                echo'<pre>';
                 echo $_SESSION["checkIdLn"];
+                echo'<pre>';
                 echo $_SESSION["checkEmail"];
-
+                echo'<pre>';
+                echo $_SESSION["checkDob"];
+                echo'<pre>';
+                echo $_SESSION["matchPassword"];
                 
                 //session_destroy();
 

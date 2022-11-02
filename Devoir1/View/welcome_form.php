@@ -1,3 +1,13 @@
+<?php
+session_start();
+error_reporting(0);
+  if($_SESSION['loggedIn']){
+  }
+else
+  //redirect to the login page
+  header("Location: ../View/login_form.php"); 
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -38,8 +48,7 @@
     <main role="main">
         <div class="container_parent">
             <div class="container_child">
-                <?php
-                session_start();
+            <?php
                 echo "Bienvenue " . $_SESSION["firstName"] . " " . $_SESSION["lastName"] . " " . $_SESSION["age"] . " ans";
                 ?>
             </div>
@@ -116,17 +125,6 @@
     <div>
         <p id="copyright">&copy; 2022 Le Millésime. All rights reserved.</p>
     </div>
-
-    <?php 
-
-// if(!empty($_GET["display"])){
-
-//     echo "La personne est " . $_GET["display"];
-// } else {
-//     NULL;
-// } 
-// echo "<br>";
-// echo "<br>";
 ?>
 </body>
 
