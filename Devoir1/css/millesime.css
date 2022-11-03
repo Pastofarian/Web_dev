@@ -1,6 +1,6 @@
-/*Fonctionne sous Mozilla Firefox, problème d'affichage d'icone pour Chrome */
+/*CSS repris d'un exo de WEB */
 /*Google fonts : Cherrish, Poppins, Roboto, Great vibes*/
-@import url('https://fonts.googleapis.com/css2?family=Cherish&family=Great+Vibes&family=Poppins:ital,wght@1,300&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@200&family=Roboto:wght@300&display=swap');
 
 body {
     background-color: #F1F1F1;
@@ -10,13 +10,13 @@ body {
     min-width: 880px;
 }
 
-/*J'ai eu du mal à rassembler les class et les id de cette façon*/
+
 h1 h3 {
     color: rgb(59, 59, 59);
 }
 
 h1 {
-    font-family: 'Cherish', cursive;
+    font-family: 'Dancing Script';
     font-weight: 100;
     font-size: 5em;
     position: relative;
@@ -52,23 +52,6 @@ h3 {
     top: 0.3em;
 }
 
-#facebook {
-    position: absolute;
-    width: 20px;
-    right: 2.8em;
-}
-
-#instagram {
-    position: absolute;
-    width: 20px;
-    right: 1em;
-    top: 0.2em;
-    border-left-style: solid;
-    /*petite séparation entre les deux icones*/
-    border-left-width: 1px;
-    padding-left: 0.2em;
-}
-
 .navigation_menu {
     font-family: 'Poppins', sans-serif;
     font-size: small;
@@ -89,7 +72,7 @@ h3 {
     padding: 0em 1em;
 }
 
-#main_slide {
+/* #main_slide {
     padding-top: 0%;
     margin: 0%;
     background-image: url(../images/02.jpg);
@@ -98,7 +81,7 @@ h3 {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-}
+} */
 
 strong {
     font-weight: normal;
@@ -180,7 +163,16 @@ strong {
 }
 
 .container_parent {
-    background-image: url(../images/05.jpg);
+    background-image: url(../images/th-3417247406.jpeg);
+    height: 1000px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+}
+
+.container_welcome {
+    background-image: url(../images/Funny_cow_by_Lin0ra.jpg);
     height: 1000px;
     background-repeat: no-repeat;
     background-position: center;
@@ -209,18 +201,6 @@ strong {
     text-align: left;
 }
 
-#map {
-    transform: rotate(15deg);
-    /* faire tourner + effet polaroid*/
-    height: 400px;
-    position: relative;
-    left: 22em;
-    bottom: 25em;
-    border-style: solid;
-    border-color: white;
-    border-width: 7px 7px 25px 7px;
-}
-
 #submit {
     background-color: brown;
     border: none;
@@ -231,124 +211,11 @@ strong {
     cursor: pointer;
 }
 
-
-
-.news {
-    box-shadow: inset 0 -15px 30px rgba(0, 0, 0, 0.4), 0 5px 10px rgba(0, 0, 0, 0.5);
-    width: 350px;
-    height: 30px;
-    margin: 20px auto;
-    overflow: hidden;
-    border-radius: 4px;
-    padding: 3px;
-    -webkit-user-select: none
-}
-
 .full-width {
     width: 100%;
-}
-
-.news span {
-    float: left;
-    color: #fff;
-    padding: 6px;
-    position: relative;
-    top: 1%;
-    border-radius: 4px;
-    box-shadow: inset 0 -15px 30px rgba(0, 0, 0, 0.4);
-    font: 16px 'Source Sans Pro', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -webkit-user-select: none;
-    cursor: pointer
-}
-
-.news ul {
-    float: left;
-    padding-left: 20px;
-    animation: ticker 10s cubic-bezier(1, 0, .5, 0) infinite;
-    -webkit-user-select: none
 }
 
 .news ul li {
     line-height: 30px;
     list-style: none
-}
-
-.news ul li a {
-    color: #fff;
-    text-decoration: none;
-    font: 14px Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -webkit-user-select: none
-}
-
-@keyframes ticker {
-    0% {
-        margin-top: 0
-    }
-
-    25% {
-        margin-top: -30px
-    }
-
-    50% {
-        margin-top: -60px
-    }
-
-    75% {
-        margin-top: -90px
-    }
-
-    100% {
-        margin-top: 0
-    }
-}
-
-.news ul:hover {
-    animation-play-state: paused
-}
-
-.news span:hover+ul {
-    animation-play-state: paused
-}
-
-/*OTHER COLORS*/
-.blue {
-    background: #347fd0
-}
-
-.blue span {
-    background: #2c66be
-}
-
-.red {
-    background: #d23435
-}
-
-.red span {
-    background: #c22b2c
-}
-
-.green {
-    background: #699B67
-}
-
-.green span {
-    background: #547d52
-}
-
-.magenta {
-    background: #b63ace
-}
-
-.magenta span {
-    background: #842696
-}
-
-.yellow {
-    background: yellow
-}
-
-.yellow span {
-    background: yellow
 }

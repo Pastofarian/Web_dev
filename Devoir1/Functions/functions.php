@@ -40,6 +40,19 @@ function addDatasCsv(){
   fclose($out);
 }
 
+//check si le log (email) est déjà présent dans le fichier .csv
+function duplicates($email, $csv){
+  if(!empty($csv)){
+      $error = "";
+      for($i = 0; $i < (count($csv)-1); $i++){
+        if($email == $csv[$i][3]){
+          $error = "Votre email est déjà dans notre base de données";
+        }
+      }
+      return $error;
+  }
+}
+
 //Controle password
 /*Stratégie de mot de passe :
     - 8 caractères minimum
@@ -47,6 +60,7 @@ function addDatasCsv(){
     - 1 majuscule minimum
     - 1 minuscule minimum*/
     function checkPassword($password){
+      $error = "";
       if (strlen($password) <= '8') {
           $error = "Votre mot de passe doit contenir au moins 8 caractères !";
       }
@@ -85,6 +99,7 @@ function checkEmail($email) {
   return $error;
 }
 
+
 //check de la date de naissance
 function checkDob($dob){
   $message = '';
@@ -105,7 +120,7 @@ function checkDob($dob){
   
   //fonction checkdate pour vérifier si la date existe
   if(!checkdate($month, $day, $year)){
-    $message = 'La date de naissance est invalide. Verifiez que le mois est bien situé entre 1 et 12 et que le jour est valide pour ce mois.';
+    $message = 'La date de naissance est invalide.<br> Verifiez que le mois est bien situé entre 1 et 12. <br> Vérifiez que le jour est valide pour ce mois.';
   }
   //si la date est valide, il faut vérifier l'age
    if ($message == '') {

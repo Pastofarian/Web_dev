@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting(0);
+
 include("../Functions/functions.php");
 
 // Set path to CSV file
@@ -15,11 +15,9 @@ $birthDate;
 $currentDate = date("Y-m-d");
 $lastName;
 $firstName;
-$passLine;
-$logLine;
+$logLine; //1 user/password
 $isPassAndLogOk = false;
 $islogOk = false;
-$isPassOk = false;
 $error = false;
 $email = $_POST["logMail"];
 $pass = $_POST["logPass"];
@@ -27,35 +25,27 @@ $pass = $_POST["logPass"];
 // check si l'email est bien dans le fichier .csv
 for($i = 0; $i < (count($csv)-1); $i++){ //dernière ligne vide crée une erreure
     if($email == $csv[$i][3]){
-        $islogOk = true;
-        $logLine = $i;
+        $islogOk = true; //est présent dans le fichier
+        $logLine = $i; //attribue la ligne log
         $lastName = $csv[$i][1]; //attribue le nom 
         $firstName = $csv[$i][0]; //attribue le prénom
         $birthDate = $csv[$i][2]; //attribue la date de naissance
-        break;
+        break; //si le trouve, s'arrête de boucler
     } else {
         $error = true; //si log(email) pas trouvé dans le .csv => erreur
     }
 }
-// check si le password est bien dans le fichier .csv
+// check si le password correspond bien au log (2 users peuvent avoir le même pw)
 for($i = 0; $i < (count($csv)-1); $i++){
-    if($pass == $csv[$i][4]){
-        $isPassOk = true;
-        $passLine = $i;
+    if($pass == $csv[$logLine][4]){
+        $isPassAndLogOk = true;
         break;
     }else {
         $error = true;
     }
 }
 
-// check si l'email correspond bien au password
-if($passLine == $logLine){
-    $isPassAndLogOk = true; //évite de pouvoir se loger avec le PW de qqun d'autre
-} else {
-    $error = true;
-}
-
-// si erreur affiche dans le formulaire login
+// si erreur, affiche dans le formulaire login
 if($error){
     $_SESSION["error"] = "Erreur dans le mot de passe ou le login";
 }
@@ -67,9 +57,9 @@ $_SESSION["firstName"] = $firstName;
 $_SESSION["age"] = $age->format("%y");
 
 
-//si tous les flags sont ok -> welcome
-if($isPassOk && $islogOk && $isPassAndLogOk){
-    $_SESSION["loggedIn"] = TRUE;
+//si les flags sont ok -> welcome
+if($islogOk && $isPassAndLogOk){
+    $_SESSION["loggedIn"] = TRUE; //permets l'accès. Evite accès direct url
     header("Location: ../View/welcome_form.php");
 } else {
     header("Location: ../View/login_form.php");
@@ -88,8 +78,8 @@ if($isPassOk && $islogOk && $isPassAndLogOk){
 // echo ' <br>';
 // echo "logLine : " . $logLine;
 // echo ' <br>';
-// echo "passLine : " . $passLine;
-// echo ' <br>';
+// //echo "passLine : " . $passLine;
+// //echo ' <br>';
 // echo "isPassAndLogOk : " . $isPassAndLogOk;
 // echo ' <br>';
 // echo "nom : " . $lastName;

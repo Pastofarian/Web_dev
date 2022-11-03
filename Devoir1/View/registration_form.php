@@ -6,39 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/millesime.css">
-    <title>Contact - Le Millésime</title>
+    <title>Forum Podologie Bovine</title>
 </head>
 
 <body>
     <header>
-        <div class="container"><span id="phone_info">+33 (0) 380.62.80.37</span>
-            <a href="https://www.facebook.com/" target="_blank"><img id="facebook"
-                    src="/Web/Millesime/images/facebook-logo-circle-white.png" alt="facebook"></a><a
-                href="https://www.instagram.com/" target="_blank"><img id="instagram"
-                    src="/Web/Millesime/images/instagram-logo-black-transparent-381383913.png" alt="instagram"></a>
+        <div class="container"><span id="phone_info">La passion du sabot</span>
         </div>
-        <h1>Le Millésime</h1>
+        <h1>Forum Podologie Bovine</h1>
         <nav>
             <ul class="navigation_menu">
-                <!--Contact & réservations-->
-                <li><a class="menu_link" href="#" title="Contact">CONTACT</a></li>
+                <li><a class="menu_link" href="login_form.php" title="LOGIN">LOGIN</a></li>
                 <li>|</li>
                 <!--Brochure opens in a blank page-->
                 <li><a class="menu_link" href="../images/vdocument.in_bovine-anatomy.pdf" target="_blank" title="Brochure">BROCHURE</a></li>
                 <li>|</li>
-                <!--link "Les chambres" not in use-->
-                <li><a class="menu_link" href="#" title="Les chambres">LES CHAMBRES</a></li>
+                <li><a class="menu_link" href="#" title="BLOG">BLOG</a></li>
                 <li>|</li>
-                <li><a class="menu_link" href="#" title="Carte & Menus">CARTE & MENU</a></li>
+                <li><a class="menu_link" href="#" title="NOTRE HISTOIRE">NOTRE HISTOIRE</a></li>
                 <li>|</li>
-                <li><a class="menu_link" href="https://cornhub.fr/" title="Le restaurant">LE RESTAURANT</a></li>
+                <li><a class="menu_link" href="https://cornhub.fr/" title="LE FORUM">LE FORUM</a></li>
             </ul>
         </nav>
     </header>
     <main role="main">
         <div class="container_parent">
             <div class="container_child">
-                
+                <h2>Inscrivez vous !</h2>
                 <form action="../Controler/control_registration.php" method="POST">
                     <p class="input_form"><label for="prenom">Prénom *</label>
                         <input type="text" name="prenom" id="prenom" autocomplete="on" required="required">&nbsp;&nbsp;&nbsp;
@@ -71,7 +65,8 @@
                 error_reporting(0);
                 
                 foreach($_SESSION["checkEmpty"] as $key => $value){
-                   echo $key.' -> '.$value.'<br>';
+                    echo'<pre>';
+                    echo $key.' -> '.$value.'<br>';
                 }
                 echo'<pre>';
                 echo $_SESSION["checkPassword"];
@@ -85,7 +80,9 @@
                 echo $_SESSION["checkDob"];
                 echo'<pre>';
                 echo $_SESSION["matchPassword"];
-                
+                echo'<pre>';
+                echo $_SESSION["checkDuplicates"];
+
                 //session_destroy();
 
                 ?>
@@ -129,7 +126,7 @@
         <ul class="footer__nav">
             <li class="nav__item">
             <li>
-                <h2>Le Millésime</h2>
+                <h2>L'étable</h2>
             </li>
             <li>
                 <p>1 rue Traversière
@@ -161,7 +158,7 @@
         </ul>
     </footer>
     <div>
-        <p id="copyright">&copy; 2022 Le Millésime. All rights reserved.</p>
+        <p id="copyright">&copy; 2022 L'étable. All rights reserved.</p>
     </div>
 </body>
 

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/millesime.css">
-    <title>Contact - Le Millésime</title>
+    <title>Forum Podologie Bovine</title>
 </head>
 
 <body>
@@ -28,6 +28,7 @@
                 </form>
                 <?php
                     session_start();
+                    error_reporting(0);
                 if(!isset($_SESSION["error"])){
                       echo $_SESSION["error"];
                       //session_destroy();
@@ -72,7 +73,7 @@
         <ul class="footer__nav">
             <li class="nav__item">
             <li>
-                <h2>Le Millésime</h2>
+                <h2>L'étable</h2>
             </li>
             <li>
                 <p>1 rue Traversière
@@ -104,7 +105,7 @@
         </ul>
     </footer>
     <div>
-        <p id="copyright">&copy; 2022 Le Millésime. All rights reserved.</p>
+        <p id="copyright">&copy; 2022 L'étable'. All rights reserved.</p>
     </div>
 </body>
 
