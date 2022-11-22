@@ -3,7 +3,7 @@ session_start();
 include("../Functions/functions.php");
 include("../Model/insert.php");
 
-$registration = '../View/index.php';
+$registration = '../View/registration_form.php';
 $login = '../View/login_form.php';
 
 $csvFile = 'datas.csv'; // Set path to CSV file
