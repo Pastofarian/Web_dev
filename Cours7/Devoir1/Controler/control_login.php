@@ -2,11 +2,14 @@
 session_start();
 
 include("../Functions/functions.php");
+include("../Model/read.php");
+
+$result = recupAllInfoAdmin();
 
 // Set path to CSV file
-$csvFile = 'datas.csv';
+//$csvFile = 'datas.csv';
 
-$csv = readCSV($csvFile);
+//$csv = readCSV($csvFile);
 // echo '<pre>';
 // print_r($csv);
 // echo '</pre>';
@@ -22,28 +25,28 @@ $error = false;
 $email = $_POST["logMail"];
 $pass = $_POST["logPass"];
 
-// check si l'email est bien dans le fichier .csv
-for($i = 0; $i < (count($csv)-1); $i++){ //dernière ligne vide crée une erreure
-    if($email == $csv[$i][3]){
+// check si l'email est bien dans le fichier .csv maintenant DB
+for($i = 0; $i < (count($result)); $i++){ 
+    if($email == $result[$i]['Email']){
         $islogOk = true; //est présent dans le fichier
         $logLine = $i; //attribue la ligne log
-        $lastName = $csv[$i][1]; //attribue le nom 
-        $firstName = $csv[$i][0]; //attribue le prénom
-        $birthDate = $csv[$i][2]; //attribue la date de naissance
+        $lastName = $result[$i]['LastName']; //attribue le nom 
+        $firstName = $result[$i]['FirstName']; //attribue le prénom
+        $birthDate = $result[$i]['DOB']; //attribue la date de naissance
         break; //si le trouve, s'arrête de boucler
     } else {
         $error = true; //si log(email) pas trouvé dans le .csv => erreur
     }
 }
 // check si le password correspond bien au log (2 users peuvent avoir le même pw)
-for($i = 0; $i < (count($csv)-1); $i++){
-    if($pass == $csv[$logLine][4]){
+//for($i = 0; $i < (count($result)-1); $i++){
+    if($pass == $result[$logLine]['Password1']){
         $isPassAndLogOk = true;
-        break;
+        //break;
     }else {
         $error = true;
     }
-}
+//}
 
 // si erreur, affiche dans le formulaire login
 if($error){
@@ -64,7 +67,8 @@ if($islogOk && $isPassAndLogOk){
 } else {
     header("Location: ../View/login_form.php");
 }
-
+// echo $lastName;
+// var_dump($result);
 
 // echo "Current age is ".$age->format("%y");
 // echo ' <br>';
@@ -73,8 +77,6 @@ if($islogOk && $isPassAndLogOk){
 // echo "birthDate : " . $birthDate;
 // echo ' <br>';
 // echo "isLogOk : " . $islogOk;
-// echo ' <br>';
-// echo "isPassOk : " . $isPassOk;
 // echo ' <br>';
 // echo "logLine : " . $logLine;
 // echo ' <br>';

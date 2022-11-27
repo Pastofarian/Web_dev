@@ -6,8 +6,8 @@ include("../Model/insert.php");
 $registration = '../View/registration_form.php';
 $login = '../View/login_form.php';
 
-$csvFile = 'datas.csv'; // Set path to CSV file
-$csv = readCSV($csvFile); 
+//$csvFile = 'datas.csv'; // Set path to CSV file
+//$csv = readCSV($csvFile); 
 
 $_SESSION["checkEmpty"] = checkEmpty($_POST);
 $_SESSION["matchPassword"] = MatchPassword($_POST["pass1"],$_POST["pass2"]);

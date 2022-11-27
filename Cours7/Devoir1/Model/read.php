@@ -19,8 +19,8 @@ function recupAllInfoAdmin(){
   return (!empty($result)) ? $result: 'NULL';
 }
 
-//$result = recupAllInfoAdmin();
-//var_dump($result);
-//echo("test");
-//var_dump(recupAllInfoAdmin());
+// $result = recupAllInfoAdmin();
+// var_dump($result);
+// echo("test");
+// var_dump(recupAllInfoAdmin());
  ?>

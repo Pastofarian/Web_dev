@@ -1,4 +1,5 @@
 <?php
+include("../Model/read.php");
 
 //Check si toutes les données du formulaire sont bien remplie
 function checkEmpty($data){
@@ -21,31 +22,32 @@ return $error;
 }
 
 //lit le fichier .csv pour en extraire les données sous forme de tableau
-function readCSV($csvFile){
-  $file_handle = fopen($csvFile, 'r');
-  while (!feof($file_handle) ) {
-      $line_of_text[] = fgetcsv($file_handle, 1024);
-  }
-  fclose($file_handle);
-  return $line_of_text;
-}
+// function readCSV($csvFile){
+//   $file_handle = fopen($csvFile, 'r');
+//   while (!feof($file_handle) ) {
+//       $line_of_text[] = fgetcsv($file_handle, 1024);
+//   }
+//   fclose($file_handle);
+//   return $line_of_text;
+// }
 
 //ajoute les données du formulaire dans le fichier .csv
-function addDatasCsv(){
-  //open the file
-  $out = fopen('datas.csv', 'a+');
-  //Data to be inserted
-  fputcsv($out, $_POST);
-  //Closing the file
-  fclose($out);
-}
+// function addDatasCsv(){
+//   //open the file
+//   $out = fopen('datas.csv', 'a+');
+//   //Data to be inserted
+//   fputcsv($out, $_POST);
+//   //Closing the file
+//   fclose($out);
+// }
 
-//check si le log (email) est déjà présent dans le fichier .csv
+//check si le log (email) est déjà présent dans le fichier .csv maintenant la DB
 function duplicates($email, $csv){
-  if(!empty($csv)){
+  $result = recupAllInfoAdmin();
+  if(!empty($result)){
       $error = "";
-      for($i = 0; $i < (count($csv)-1); $i++){
-        if($email == $csv[$i][3]){
+      for($i = 0; $i < (count($result)); $i++){
+        if($email == $result[$i]['Email']){
           $error = "Votre email est déjà dans notre base de données";
         }
       }

@@ -1,0 +1,221 @@
+/*CSS repris d'un exo de WEB */
+/*Google fonts : Cherrish, Poppins, Roboto, Great vibes*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@200&family=Roboto:wght@300&display=swap');
+
+body {
+    background-color: #F1F1F1;
+    margin: auto;
+    font-family: 'Roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%;
+    min-width: 880px;
+}
+
+
+h1 h3 {
+    color: rgb(59, 59, 59);
+}
+
+h1 {
+    font-family: 'Dancing Script';
+    font-weight: 100;
+    font-size: 5em;
+    position: relative;
+    top: 10px;
+    left: 50px;
+    margin: 0;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 2em;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.container {
+    background-color: rgb(208, 207, 207);
+    border-top: none;
+    height: 20px;
+    min-height: 20px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin-bottom: -1px;
+}
+
+#phone_info {
+    font-family: 'Poppins', sans-serif;
+    font-size: x-small;
+    font-weight: 600;
+    position: absolute;
+    right: 7em;
+    top: 0.3em;
+}
+
+.navigation_menu {
+    font-family: 'Poppins', sans-serif;
+    font-size: small;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    list-style-type: none;
+    color: rgb(59, 59, 59);
+    padding-right: 2em;
+}
+
+.menu_link {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: rgb(59, 59, 59);
+    list-style-type: none;
+    padding: 0em 1em;
+}
+
+/* #main_slide {
+    padding-top: 0%;
+    margin: 0%;
+    background-image: url(../images/02.jpg);
+    width: 100%;
+    height: 1000px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+} */
+
+strong {
+    font-weight: normal;
+}
+
+#cuisine_slide {
+    padding-top: 0%;
+    margin: 0%;
+    background-image: url(../images/07.jpg);
+    width: 100%;
+    height: 1000px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.summer_menu {
+    line-height: 1.65em;
+    padding: 20px 200px 5px 200px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.prices_summer_menu {
+    line-height: 1.65em;
+    padding: 5px 200px 50px 200px;
+    text-align: right;
+    color: brown;
+    font-family: 'Poppins', sans-serif;
+}
+
+.annexe {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+
+.presentation {
+    font-family: 'Great Vibes', cursive;
+    font-size: 150%;
+    text-align: center;
+    line-height: 30pt;
+    padding: 2em;
+}
+
+.img2 {
+    width: 500px;
+    padding-top: 2em;
+}
+
+.footer {
+    text-align: center;
+    color: white;
+    background-color: #2f2f2f;
+    margin: 0;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.footer__nav {
+    list-style-type: none;
+}
+
+.nav__title {
+    text-decoration: none;
+    color: white;
+    line-height: 22pt;
+}
+
+#copyright {
+    font-style: italic;
+    text-align: right;
+    padding: 0.5em;
+    background-color: #2f2f2f;
+    color: #ffffff;
+    margin: 0;
+    font-size: small;
+}
+
+.container_parent {
+    background-image: url(../images/th-3417247406.jpeg);
+    height: 1000px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+}
+
+.container_welcome {
+    background-image: url(../images/Funny_cow_by_Lin0ra.jpg);
+    height: 1000px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+}
+
+.container_child {
+    font-family: 'Poppins', sans-serif;
+    font-size: large;
+    font-weight: bold;
+    width: 650px;
+    position: relative;
+    top: 5%;
+    margin: 30px;
+    padding: 80px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    line-height: 2em;
+    opacity: 0.9;
+    border-radius: 2%;
+    display: inline-block
+}
+
+.input_form {
+    text-align: left;
+}
+
+#submit {
+    background-color: brown;
+    border: none;
+    text-decoration: none;
+    color: white;
+    padding: 20px 20px;
+    margin: 20px 20px;
+    cursor: pointer;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.news ul li {
+    line-height: 30px;
+    list-style: none
+}

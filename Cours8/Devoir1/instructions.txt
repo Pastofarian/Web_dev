@@ -1,0 +1,36 @@
+Faire un module d'enregistrement et de connexion.
+Avec sauvegarde des informations.
+
+- Respecter le design pattern MVC
+- 3 pages minimum
+    - Page d'inscription
+    - Page d'enregistrement
+    - Page de bienvenue
+- Minimum 2 view
+- Minimum 2 controller
+- Formulaire de login :
+    - Un champ pour entrer login || email
+    - Un champ pour entrer le mot de passe
+- Formulaire d'inscription :
+    - Un champ pour entrer le nom
+    - Un champ pour entrer le prénom
+    - Un champ pour entrer la date de naissance
+    - Un champ pour entrer le login || email
+    - DEUX champs pour entrer le mot de passe
+
+
+Points importants :
+ - Sauvegarde des informations de la page enregistrement
+    - !!!!! PAS DE BASE DE DONNEES POUR LE MOMENT !!!!!!
+ - On se connecte sur la page login avec les identifiants enregistrés
+    sur la page enregistrement.
+ - Stratégie de mot de passe :
+    - 8 caractères minimum
+    - 1 chiffre minimum
+    - 1 majuscule minimum
+    - 1 minuscule minimum
+  - Tous vos formulaires doivent être bien controllés !!!!
+
+
+  Une fois terminé, me renvoyer le projet dans un zip à VOTRE NOM
+  sur discord avant le début du prochain cours. 
