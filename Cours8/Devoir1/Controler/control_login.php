@@ -15,7 +15,8 @@ $isPassAndLogOk = false;
 $islogOk = false;
 $error = false;
 $email = $_POST["logMail"];
-$pass = $_POST["logPass"];
+$data = $_POST["logPass"]; 
+unset($_POST["logPass"]);
 
 // check si l'email est bien dans la db
 for($i = 0; $i < (count($result)); $i++){ 
@@ -30,8 +31,9 @@ for($i = 0; $i < (count($result)); $i++){
         $error = true; //si log(email) pas trouvé dans la db => erreur
     }
 }
+
 // check si le password correspond bien au log (2 users peuvent avoir le même pw)
-    if($pass == $result[$logLine]['Password1']){
+    if(password_verify($data, $result[$logLine]['Password'])){
         $isPassAndLogOk = true;
     }else {
         $error = true;
@@ -73,7 +75,7 @@ if($islogOk && $isPassAndLogOk){
 // echo "isPassAndLogOk : " . $isPassAndLogOk;
 // echo ' <br>';
 // echo ' <br>';
-// echo "pass : " . $pass;
+// echo "pass : " . $data;
 // echo ' <br>';
 // echo ' <br>';
 // echo "result[logLine]['Password1'] : ". $result[$logLine]['Password1'];
